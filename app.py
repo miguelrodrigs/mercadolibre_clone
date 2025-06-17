@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, abort, render_template
 import json
+import os
 
 app = Flask(__name__)
 
@@ -9,18 +10,17 @@ def cargar_datos_producto():
     Retorna un diccionario con la información del producto.
     """
     try:
-        with open('producto.json', 'r', encoding='utf-8') as archivo:
+        ruta = os.path.join(os.path.dirname(__file__), 'producto.json')
+        with open(ruta, 'r', encoding='utf-8') as archivo:
             producto = json.load(archivo)
             return producto
     except FileNotFoundError:
-        # Si no se encuentra el archivo JSON, se devuelve None
         return None
 
 @app.route('/api/producto', methods=['GET'])
 def obtener_producto():
     """
-    Endpoint para obtener los detalles del producto.
-    Retorna un JSON con la información del producto.
+    Endpoint para obtener los detalles del producto en formato JSON.
     """
     producto = cargar_datos_producto()
     if producto is None:
@@ -30,9 +30,12 @@ def obtener_producto():
 @app.route('/', methods=['GET'])
 def index():
     """
-    Ruta principal que renderiza el template HTML.
+    Ruta principal que renderiza el template HTML con los datos del producto.
     """
-    return render_template('index.html')
+    producto = cargar_datos_producto()
+    if producto is None:
+        abort(500, description="Error: archivo de datos no encontrado.")
+    return render_template('index.html', producto=producto)
 
 @app.errorhandler(404)
 def pagina_no_encontrada(error):

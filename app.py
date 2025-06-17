@@ -17,22 +17,16 @@ def cargar_datos_producto():
     except FileNotFoundError:
         return None
 
-@app.route('/api/producto', methods=['GET'])
+@app.route('/', methods=['GET', 'HEAD'])
+def index():
+    return render_template('index.html')
+
+@app.route('/api/producto', methods=['GET', 'HEAD'])
 def obtener_producto():
-    """
-    Endpoint para obtener los detalles del producto en formato JSON.
-    """
     producto = cargar_datos_producto()
     if producto is None:
         abort(500, description="Error: archivo de datos no encontrado.")
     return jsonify(producto)
-
-@app.route('/', methods=['GET'])
-def index():
-    """
-    Ruta principal que renderiza el template HTML.
-    """
-    return render_template('index.html')
 
 
 @app.errorhandler(404)

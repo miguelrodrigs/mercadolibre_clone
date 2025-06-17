@@ -21,11 +21,12 @@ def cargar_datos_producto():
 def index():
     return render_template('index.html')
 
-@app.route('/api/producto', methods=['GET', 'HEAD'])
-def obtener_producto():
-    producto = cargar_datos_producto()
+@app.route('/api/producto/<int:producto_id>', methods=['GET', 'HEAD'])
+def obtener_producto_id(producto_id):
+    productos = cargar_lista_productos()
+    producto = next((p for p in productos if p["id"] == producto_id), None)
     if producto is None:
-        abort(500, description="Error: archivo de datos no encontrado.")
+        abort(404, description="Producto no encontrado.")
     return jsonify(producto)
 
 

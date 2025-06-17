@@ -1,29 +1,141 @@
-{
-  "id": 1,
-  "title": "Notebook Gamer RTX 4060",
-  "description": "Potente notebook para juegos y trabajo con tarjeta gráfica RTX 4060.",
-  "price": 159999,
-  "images": [
-    "https://example.com/img1.jpg",
-    "https://example.com/img2.jpg",
-    "https://example.com/img3.jpg"
-  ],
-  "reviews": 112,
-  "seller": {
-    "name": "TecnoStore",
-    "reputation": "Excelente"
+[
+  {
+    "id": 1,
+    "title": "Notebook Gamer RTX 4060",
+    "description": "Potente notebook para juegos y trabajo con tarjeta gráfica RTX 4060.",
+    "price": 159999,
+    "images": [
+      "https://example.com/img1.jpg",
+      "https://example.com/img2.jpg",
+      "https://example.com/img3.jpg"
+    ],
+    "reviews": 112,
+    "seller": {
+      "name": "TecnoStore",
+      "reputation": "Excelente"
+    },
+    "rating": 4.7,
+    "stock": 5,
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Mercado Pago",
+      "Transferencia bancaria"
+    ],
+    "especificaciones": {
+      "Memoria RAM": "16 GB",
+      "Almacenamiento": "1 TB SSD",
+      "Condición": "Nuevo",
+      "Garantía": "24 meses"
+    }
   },
-  "rating": 4.7,
-  "stock": 5,
-  "payment_methods": [
-    "Tarjeta de crédito",
-    "Mercado Pago",
-    "Transferencia bancaria"
-  ],
-  "especificaciones": {
-    "Memoria RAM": "16 GB",
-    "Almacenamiento": "1 TB SSD",
-    "Condición": "Nuevo",
-    "Garantía": "24 meses"
+  {
+    "id": 2,
+    "title": "Smartphone Samsung Galaxy S23",
+    "description": "Smartphone Samsung Galaxy S23 con pantalla AMOLED de 6.1'' y triple cámara.",
+    "price": 89999,
+    "images": [
+      "https://example.com/s23-1.jpg",
+      "https://example.com/s23-2.jpg",
+      "https://example.com/s23-3.jpg"
+    ],
+    "reviews": 340,
+    "seller": {
+      "name": "Samsung Oficial",
+      "reputation": "Excelente"
+    },
+    "rating": 4.8,
+    "stock": 10,
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Mercado Pago"
+    ],
+    "especificaciones": {
+      "Pantalla": "6.1 pulgadas AMOLED",
+      "Cámara": "Triple 50+12+10 MP",
+      "Condición": "Nuevo",
+      "Garantía": "12 meses"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Auriculares Bluetooth JBL Tune 510BT",
+    "description": "Auriculares inalámbricos JBL con hasta 40 horas de autonomía.",
+    "price": 24999,
+    "images": [
+      "https://example.com/jbl1.jpg",
+      "https://example.com/jbl2.jpg"
+    ],
+    "reviews": 532,
+    "seller": {
+      "name": "JBL Store",
+      "reputation": "Muy bueno"
+    },
+    "rating": 4.5,
+    "stock": 20,
+    "payment_methods": [
+      "Mercado Pago",
+      "Tarjeta de crédito"
+    ],
+    "especificaciones": {
+      "Conectividad": "Bluetooth 5.0",
+      "Autonomía": "40 horas",
+      "Condición": "Nuevo",
+      "Garantía": "6 meses"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Mouse Logitech G502 HERO",
+    "description": "Mouse gamer con sensor HERO 25K y 11 botones programables.",
+    "price": 17999,
+    "images": [
+      "https://example.com/logitech1.jpg",
+      "https://example.com/logitech2.jpg"
+    ],
+    "reviews": 221,
+    "seller": {
+      "name": "Logitech Oficial",
+      "reputation": "Excelente"
+    },
+    "rating": 4.6,
+    "stock": 15,
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Mercado Pago"
+    ],
+    "especificaciones": {
+      "Sensor": "HERO 25K",
+      "Botones": "11 programables",
+      "Condición": "Nuevo",
+      "Garantía": "12 meses"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Smart TV LG 50\" 4K UHD",
+    "description": "Smart TV de 50 pulgadas con resolución 4K UHD y sistema operativo webOS.",
+    "price": 209999,
+    "images": [
+      "https://example.com/lg50-1.jpg",
+      "https://example.com/lg50-2.jpg"
+    ],
+    "reviews": 78,
+    "seller": {
+      "name": "LG Oficial",
+      "reputation": "Excelente"
+    },
+    "rating": 4.9,
+    "stock": 8,
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Mercado Pago",
+      "Transferencia bancaria"
+    ],
+    "especificaciones": {
+      "Resolución": "4K UHD",
+      "Sistema operativo": "webOS",
+      "Condición": "Nuevo",
+      "Garantía": "24 meses"
+    }
   }
-}
+]

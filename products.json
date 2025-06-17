@@ -1,0 +1,14 @@
+{
+  "iphone14pro": {
+    "id": "iphone14pro",
+    "title": "iPhone 14 Pro 256GB - Negro Espacial",
+    "description": "El iPhone 14 Pro cuenta con un sistema de cámaras Pro, pantalla Super Retina XDR, y el potente chip A16 Bionic.",
+    "price": 1399,
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_873303-MLA54870481554_042023-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_948384-MLA54870524322_042023-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_706674-MLA54870524574_042023-F.webp"
+    ],
+    "seller": "Apple Oficial"
+  }
+}

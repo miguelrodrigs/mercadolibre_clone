@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "title": "Notebook Gamer RTX 4060",
+  "description": "Potente notebook para juegos y trabajo con tarjeta gráfica RTX 4060.",
+  "price": 159999,
+  "images": [
+    "https://example.com/img1.jpg",
+    "https://example.com/img2.jpg",
+    "https://example.com/img3.jpg"
+  ],
+  "reviews": 112,
+  "seller": {
+    "name": "TecnoStore",
+    "reputation": "Excelente"
+  },
+  "rating": 4.7,
+  "stock": 5,
+  "payment_methods": [
+    "Tarjeta de crédito",
+    "Mercado Pago",
+    "Transferencia bancaria"
+  ],
+  "especificaciones": {
+    "Memoria RAM": "16 GB",
+    "Almacenamiento": "1 TB SSD",
+    "Condición": "Nuevo",
+    "Garantía": "24 meses"
+  }
+}

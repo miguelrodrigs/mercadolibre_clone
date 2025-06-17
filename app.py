@@ -30,12 +30,10 @@ def obtener_producto():
 @app.route('/', methods=['GET'])
 def index():
     """
-    Ruta principal que renderiza el template HTML con los datos del producto.
+    Ruta principal que renderiza el template HTML.
     """
-    producto = cargar_datos_producto()
-    if producto is None:
-        abort(500, description="Error: archivo de datos no encontrado.")
-    return render_template('index.html', producto=producto)
+    return render_template('index.html')
+
 
 @app.errorhandler(404)
 def pagina_no_encontrada(error):

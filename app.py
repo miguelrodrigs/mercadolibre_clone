@@ -21,7 +21,7 @@ def cargar_lista_productos():
         return None
 
 @app.route('/api/producto', methods=['GET'])
-def obtener_producto():
+def obtener_producto_api():
     producto_id = request.args.get('id', default=None, type=int)
     
     if producto_id is None:
@@ -45,13 +45,12 @@ def index():
         abort(500, description="Error: archivo de datos no encontrado.")
     return render_template('index.html', productos=productos)
 
-@app.errorhandler(404)
-def pagina_no_encontrada(error):
-    return jsonify({'error': 'Recurso no encontrado'}), 404
-
-@app.errorhandler(500)
-def error_servidor(error):
-    return jsonify({'error': error.description}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/producto', methods=['GET'])
+def detalle_producto():
+    producto_id = request.args.get('id', default=None, type=int)
+    if producto_id is None:
+        abort(400, description="Parámetro 'id' es requerido.")
+    
+    productos = cargar_lista_productos()
+    if productos is None:
+        abort(500, description="Error: archivo de datos no encontrado.")

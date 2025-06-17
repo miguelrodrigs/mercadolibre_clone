@@ -54,3 +54,9 @@ def detalle_producto():
     productos = cargar_lista_productos()
     if productos is None:
         abort(500, description="Error: archivo de datos no encontrado.")
+    
+    producto = next((p for p in productos if p["id"] == producto_id), None)
+    if producto is None:
+        abort(404, description="Producto no encontrado.")
+    
+    return render_template('producto.html', producto=producto)

@@ -6,7 +6,7 @@ Este proyecto es un clon simplificado de una página de producto de MercadoLibre
 
 ## Elecciones de diseño
 
-- **Backend:** Python con Flask, elegido por su simplicidad y facilidad para integrar HTML usando Jinja2.  
+- **Backend:** Python con Flask, elegido por su simplicidad y facilidad para integrar HTML.  
 - **Persistencia de datos:** Los productos se almacenan en un archivo JSON local (`productos.json`), tal como se solicitó en el desafío.  
 - **Frontend:** Utilicé HTML con Bootstrap para lograr un diseño responsivo y similar al sitio real de MercadoLibre, especialmente en la paleta de colores amarilla característica.  
 - **API RESTful:** Implementé un endpoint `/api/producto` que devuelve los detalles de un producto en formato JSON, lo que facilita futuras integraciones.

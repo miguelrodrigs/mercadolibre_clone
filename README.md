@@ -1,7 +1,7 @@
 
 ---
 
-## ✅ `DOCUMENTACION.md`
+## ✅ `DOCUMENTACION`
 
 ```markdown
 # 📄 Documentación del Proyecto - MercadoLibre Clone

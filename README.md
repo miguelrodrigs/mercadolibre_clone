@@ -19,13 +19,13 @@ Este proyecto es un clon simplificado de una página de producto de MercadoLibre
 
 ##  Funcionalidades implementadas
 
-- ✔️ Página de listado de productos (`/`)
-- ✔️ Página de detalle por producto (`/producto?id=<id>`)
-- ✔️ API RESTful (`/api/producto?id=<id>`)
-- ✔️ Formulario para agregar productos (`/nuevo-producto`), con IDs incrementales automáticos
-- ✔️ Métodos de pago y especificaciones incluidas
-- ✔️ Tratamiento de errores 400, 404 y 500
-- ✔️ Documentación de uso (`run.md`)
+- ✔ Página de listado de productos (`/`)
+- ✔ Página de detalle por producto (`/producto?id=<id>`)
+- ✔ API RESTful (`/api/producto?id=<id>`)
+- ✔ Formulario para agregar productos (`/nuevo-producto`), con IDs incrementales automáticos
+- ✔ Métodos de pago y especificaciones incluidas
+- ✔ Tratamiento de errores 400, 404 y 500
+- ✔ Documentación de uso (`run.md`)
 
 ## Dificultades enfrentadas
 
@@ -37,6 +37,6 @@ En el Backend, la lógica de manejo del archivo JSON, generación automática de
 
 El proyecto cuenta con tratamiento adecuado de errores e implementé documentación completa. A nível de pruebas unitarias, aunque no se implementaron tests automáticos formales por limitación de tiempo, el proyecto fue testeado manualmente en diferentes escenarios (adición, visualización, error 404, error 400).
 
-## 📎 Link al repositorio
+## Link al repositorio
 
 https://github.com/miguelrodrigs/mercadolibre_clone

@@ -51,15 +51,28 @@ def nuevo_producto():
         nuevo_id = max([p['id'] for p in productos], default=0) + 1
 
         nuevo = {
-            "id": nuevo_id,
-            "titulo": request.form['titulo'],
-            "descripcion": request.form['descripcion'],
-            "precio": float(request.form['precio']),
-            "imagen": request.form['imagen'],
-            "stock": int(request.form['stock']),
-            "valoraciones": []
+        "id": nuevo_id,
+        "title": request.form['titulo'],          
+        "description": request.form['descripcion'],
+        "price": float(request.form['precio']),    
+        "images": [request.form['imagen']],        
+        "reviews": 0,                             
+        "seller": {
+            "name": "Vendedor Ejemplo",           
+            "reputation": "Nuevo"                 
+        },
+        "rating": 0.0,                             
+        "stock": int(request.form['stock']),
+        "payment_methods": [
+            "Tarjeta de crédito",
+            "Mercado Pago",
+            "Transferencia bancaria"
+        ],
+        "especificaciones": {
+            "Condición": "Nuevo",
+            "Garantía": "6 meses"
+            }
         }
-
         productos.append(nuevo)
         guardar_lista_productos(productos)
 

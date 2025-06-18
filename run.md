@@ -23,7 +23,7 @@ Este proyecto es una aplicación web desarrollada con **Python + Flask**, que si
 
 ---
 
-## Comandos para copiar y pegar (Linux o Mac):
+## Comandos para copiar y pegar:
 
 ```bash
 git clone https://github.com/miguelrodrigs/mercadolibre_clone.git

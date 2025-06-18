@@ -5,100 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Listado de Productos - MercadoLibre Clone</title>
 
-  <!-- Bootstrap para facilitar diseño responsivo -->
+  <!-- Bootstrap para estilos responsivos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
-    /* Estilo general del cuerpo */
-    body {
-      background-color: #f5f5f5;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    /* Encabezado amarillo con logo */
-    .header {
-      background-color: #ffe600;
-      padding: 8px 20px;
-    }
-
-    /* Tamaño del logo */
-    .header img {
-      height: 40px;
-    }
-
-    /* Tarjeta de producto */
+    body { background-color: #f5f5f5; font-family: 'Roboto', sans-serif; }
+    .header { background-color: #ffe600; padding: 8px 20px; }
+    .header img { height: 40px; }
     .producto-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: box-shadow 0.3s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      background-color: white; border-radius: 8px; padding: 15px;
+      margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-decoration: none; color: inherit; display: block; transition: box-shadow 0.3s;
     }
-
-    /* Efecto al pasar el mouse */
-    .producto-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    }
-
-    /* Imagen del producto: cuadrada para evitar que rompa el diseño */
+    .producto-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .producto-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;    /* Cuadrado perfecto */
-      object-fit: cover;      /* Corta bordes si es necesario, manteniendo el centro */
-      border-radius: 6px;
-      margin-bottom: 10px;
+      width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; margin-bottom: 10px;
     }
-
-    /* Título del producto */
-    .producto-titulo {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-    }
-
-    /* Precio del producto */
-    .precio {
-      color: #00a650;
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
+    .producto-titulo { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+    .precio { color: #00a650; font-weight: 700; font-size: 1.3rem; }
   </style>
 </head>
 
 <body>
 
-  <!-- ENCABEZADO con logo y título -->
+  <!--  ENCABEZADO con el logo -->
   <div class="header d-flex align-items-center">
     <img src="https://i.imgur.com/5BE0kux.png" alt="Mercado Libre Logo" />
   </div>
 
-  <!-- CONTENEDOR principal de productos -->
+  <!--  CONTENEDOR principal del listado -->
   <div class="container py-4">
     <div class="row">
 
-      <!-- Estructura de repetición: cada producto estará dentro de este bloque -->
+      <!--  Aquí Flask conecta con el backend → usamos Jinja2 para recorrer los productos -->
       {% for producto in productos %}
       <div class="col-md-4">
-
-        <!-- Tarjeta individual de producto -->
+        <!--  Cada producto tiene un enlace que lleva al detalle con su ID en la URL -->
         <a href="/producto?id={{ producto.id }}" class="producto-card">
-          <!-- Imagen del producto -->
-          <img src="{{ producto.images[0] }}" alt="{{ producto.title }}" class="producto-img" />
-          
-          <!-- Título -->
-          <div class="producto-titulo">{{ producto.title }}</div>
-          
-          <!-- Precio formateado -->
-          <div class="precio">${{ '%.2f' | format(producto.price / 100) }}</div>
-        </a>
 
+          <!--  Imagen del producto -->
+          <img src="{{ producto.images[0] }}" alt="{{ producto.title }}" class="producto-img" />
+
+          <!--  Título del producto (variable enviada desde Flask) -->
+          <div class="producto-titulo">{{ producto.title }}</div>
+
+          <!--  Precio → formateado dividiendo por 100 porque en el JSON viene en centavos -->
+          <div class="precio">${{ '%.2f' | format(producto.price / 100) }}</div>
+
+        </a>
       </div>
       {% endfor %}
+      <!--  FIN del bucle → Flask renderiza un bloque por cada producto del JSON -->
 
     </div>
   </div>

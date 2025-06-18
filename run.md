@@ -6,7 +6,7 @@ Este proyecto es una aplicación web desarrollada en Python con Flask que simula
 
 ## ⚙️ Requisitos previos
 
-- Python 3.x instalado
+- Python 3.9 instalado
 - pip (gestor de paquetes)
 - Navegador web (Chrome, Firefox, Edge, etc.)
 

@@ -4,11 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Listado de Productos - MercadoLibre Clone</title>
+
+  <!-- Bootstrap para diseño responsivo y estilos predefinidos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
   <style>
-    body { background-color: #f5f5f5; font-family: 'Roboto', sans-serif; }
-    .header { background-color: #ffe600; padding: 8px 20px; }
-    .header img { height: 40px; }
+    /* Estilo general del cuerpo */
+    body {
+      background-color: #f5f5f5;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Estilo del encabezado con color característico de Mercado Libre */
+    .header {
+      background-color: #ffe600;
+      padding: 8px 20px;
+    }
+
+    /* Logo de Mercado Libre en el encabezado */
+    .header img {
+      height: 40px;
+    }
+
+    /* Tarjeta de cada producto */
     .producto-card {
       background-color: white;
       border-radius: 8px;
@@ -20,21 +38,29 @@
       text-decoration: none;
       color: inherit;
     }
+
+    /* Efecto al pasar el mouse por encima de la tarjeta */
     .producto-card:hover {
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     }
+
+    /* Imagen del producto con proporción fija para que todas se vean alineadas */
     .producto-img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      aspect-ratio: 4 / 3; /* Proporción fija para evitar que las imágenes rompan el diseño */
+      object-fit: cover;   /* Recorta la imagen si es necesario, centrando el contenido */
       border-radius: 6px;
       margin-bottom: 10px;
     }
+
+    /* Título del producto */
     .producto-titulo {
       font-weight: 600;
       font-size: 1.1rem;
       margin-bottom: 5px;
     }
+
+    /* Precio del producto con color verde típico de Mercado Libre */
     .precio {
       color: #00a650;
       font-weight: 700;
@@ -44,18 +70,23 @@
 </head>
 <body>
 
+  <!-- Encabezado con logo y título -->
   <div class="header d-flex align-items-center">
-    <img src="https://marcasregistro.com.ar/wp-content/uploads/2024/10/MercadoLibre.png" alt="Mercado Libre Logo" />
-    <h1 class="ms-3">Listado de Productos</h1>
+    <img src="https://i.imgur.com/5BE0kux.png" alt="Mercado Libre Logo" />
   </div>
 
+  <!-- Contenedor principal de productos -->
   <div class="container py-4">
     <div class="row">
+      <!-- Bucle para renderizar productos (plantilla Jinja2) -->
       {% for producto in productos %}
       <div class="col-md-4">
         <a href="/producto?id={{ producto.id }}" class="producto-card">
+          <!-- Imagen principal del producto -->
           <img src="{{ producto.images[0] }}" alt="{{ producto.title }}" class="producto-img" />
+          <!-- Título o nombre del producto -->
           <div class="producto-titulo">{{ producto.title }}</div>
+          <!-- Precio del producto formateado -->
           <div class="precio">${{ '%.2f' | format(producto.price / 100) }}</div>
         </a>
       </div>

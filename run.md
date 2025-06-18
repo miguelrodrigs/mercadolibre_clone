@@ -1,29 +1,29 @@
-# 🚀 Cómo ejecutar el proyecto MercadoLibre Clone
+# Cómo ejecutar el proyecto MercadoLibre Clone
 
 Este proyecto es una aplicación web desarrollada con **Python + Flask**, que simula una página de productos de MercadoLibre.
 
 ---
 
-## ✅ Requisitos
+## Requisitos
 
-- Python 3.9 instalado  
-- pip (gestor de paquetes)  
-- Navegador web (Chrome, Firefox, Edge)
-
----
-
-## 📦 Pasos para ejecutar el proyecto **localmente**
-
-1️⃣ Clonar o descargar el proyecto  
-2️⃣ Entrar en la carpeta del proyecto  
-3️⃣ (Opcional) Crear y activar entorno virtual  
-4️⃣ Instalar Flask  
-5️⃣ Ejecutar la aplicación  
-6️⃣ Abrir el navegador en http://localhost:5000
+- Tener instalado Python 3.9 o superior  
+- Tener instalado pip (gestor de paquetes)  
+- Navegador web moderno (Chrome, Firefox, Edge, etc.)
 
 ---
 
-## 🖥️ Comandos para copiar y pegar (en Linux/Mac):
+## Pasos para ejecutar el proyecto localmente
+
+1. Clonar o descargar el proyecto  
+2. Entrar en la carpeta del proyecto  
+3. (Opcional) Crear y activar un entorno virtual  
+4. Instalar Flask  
+5. Ejecutar la aplicación  
+6. Abrir el navegador en la dirección http://localhost:5000
+
+---
+
+## Comandos para copiar y pegar (Linux o Mac):
 
 ```bash
 git clone https://github.com/miguelrodrigs/mercadolibre_clone.git

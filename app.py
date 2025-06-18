@@ -67,11 +67,6 @@ def detalle_producto():
     Parámetros GET:
       - id: ID del producto a mostrar (obligatorio)
       
-    Respuestas posibles:
-      - Página HTML mostrando el detalle del producto.
-      - 400 Bad Request: si falta el parámetro 'id'
-      - 404 Not Found: si el producto no existe
-      - 500 Internal Server Error: problema al leer archivos
     """
     producto_id = request.args.get('id', default=None, type=int)
     if producto_id is None:

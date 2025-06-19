@@ -91,23 +91,21 @@ def nuevo_producto():
     return render_template('nuevo_producto.html')
 
 
-# API para obtener producto en JSON por id
-@app.route('/api/producto')
-def obtener_producto_api():
-    producto_id = request.args.get('id', type=int)
-    if producto_id is None:
-        abort(400, description="Parámetro 'id' es requerido.")
-
-    productos = cargar_lista_productos()
-    producto = next((p for p in productos if p["id"] == producto_id), None)
-    if producto is None:
-        abort(404, description="Producto no encontrado.")
-
-    return jsonify(producto)
-
+# API para obtener un producto por id o la lista completa si no se pasa el id
 @app.route('/api/productos')
-def obtener_todos_los_productos():
+def obtener_productos():
+    producto_id = request.args.get('id', type=int)
+
     productos = cargar_lista_productos()
+
+    if producto_id is not None:
+        # Buscar el producto con el id especificado
+        producto = next((p for p in productos if p["id"] == producto_id), None)
+        if producto is None:
+            abort(404, description="Producto no encontrado.")
+        return jsonify(producto)
+    
+    # Si no se pasa id, devuelve la lista completa
     return jsonify(productos)
 
 if __name__ == '__main__':

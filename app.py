@@ -41,44 +41,55 @@ def detalle_producto():
 
     return render_template('producto.html', producto=producto)
 
-# Página para agregar nuevo producto (GET muestra formulario, POST procesa)
+# Ruta para crear un nuevo producto
 @app.route('/nuevo-producto', methods=['GET', 'POST'])
 def nuevo_producto():
+    # Si el usuario envía el formulario (método POST)
     if request.method == 'POST':
+        # Cargamos la lista actual de productos desde el archivo JSON
         productos = cargar_lista_productos()
 
-        # Generar nuevo id incremental
+        # Generamos un nuevo ID para el producto sumando 1 al ID más alto actual
+        # Si no hay productos, empezamos desde 1
         nuevo_id = max([p['id'] for p in productos], default=0) + 1
 
+        # Creamos un nuevo diccionario con la información del producto, tomando los datos del formulario
         nuevo = {
-        "id": nuevo_id,
-        "title": request.form['titulo'],          
-        "description": request.form['descripcion'],
-        "price": float(request.form['precio']),    
-        "images": [request.form['imagen']],        
-        "reviews": 0,                             
-        "seller": {
-            "name": "Vendedor Ejemplo",           
-            "reputation": "Nuevo"                 
-        },
-        "rating": 0.0,                             
-        "stock": int(request.form['stock']),
-        "payment_methods": [
-            "Tarjeta de crédito",
-            "Mercado Pago",
-            "Transferencia bancaria"
-        ],
-        "especificaciones": {
-            "Condición": "Nuevo",
-            "Garantía": "6 meses"
+            "id": nuevo_id,                                  
+            "title": request.form['titulo'],                
+            "description": request.form['descripcion'],      
+            "price": float(request.form['precio']),          
+            "images": [request.form['imagen']],             
+            "reviews": 0,                                    
+            "seller": {
+                "name": "Vendedor Ejemplo",                  
+                "reputation": "Nuevo"                       
+            },
+            "rating": 0.0,                                  
+            "stock": int(request.form['stock']),            
+            "payment_methods": [                             
+                "Tarjeta de crédito",
+                "Mercado Pago",
+                "Transferencia bancaria"
+            ],
+            "especificaciones": {                           
+                "Condición": "Nuevo",
+                "Garantía": "6 meses"
             }
         }
+
+        # Agregamos el nuevo producto a la lista de productos existente
         productos.append(nuevo)
+
+        # Guardamos la lista actualizada en el archivo JSON
         guardar_lista_productos(productos)
 
+        # Redireccionamos al usuario a la página del detalle del producto recién creado
         return redirect(url_for('detalle_producto', id=nuevo_id))
 
+    # Si es una solicitud GET, simplemente mostramos el formulario para crear un nuevo producto
     return render_template('nuevo_producto.html')
+
 
 # API para obtener producto en JSON por id
 @app.route('/api/producto')

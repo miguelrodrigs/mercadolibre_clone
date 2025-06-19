@@ -108,5 +108,44 @@ def obtener_productos():
     # Si no se pasa id, devuelve la lista completa
     return jsonify(productos)
 
+@app.route('/api/productos')
+def actualizar_productos():
+    producto_id = request.args.get('id', type=int)
+
+    productos = cargar_lista_productos()
+
+    if producto_id is not None:
+        # Buscar el producto con el id especificado
+        producto = next((p for p in productos if p["id"] == producto_id), None)
+        if producto is None:
+            abort(404, description="Producto no encontrado.")
+        return jsonify(producto)
+    
+    # Si no se pasa id, devuelve la lista completa
+    return jsonify(productos)
+
+@app.route('/descuento')
+def aplicar_descuento_simple():
+    producto_id = request.args.get('id', type=int)
+    porcentaje = request.args.get('porcentaje', type=float)
+
+    if producto_id is None or porcentaje is None:
+        return "Faltan parámetros 'id' y 'porcentaje'.", 400
+
+    productos = cargar_lista_productos()
+    producto = next((p for p in productos if p["id"] == producto_id), None)
+
+    if producto is None:
+        return "Producto no encontrado.", 404
+
+    # Calculamos el nuevo precio con descuento
+    precio_original = producto['price']
+    nuevo_precio = precio_original * (1 - porcentaje / 100)
+    producto['price'] = round(nuevo_precio, 2)
+
+    guardar_lista_productos(productos)
+
+    return f"Descuento aplicado ✅ Producto: {producto['title']} - Precio anterior: ${precio_original} - Nuevo precio: ${producto['price']}"
+
 if __name__ == '__main__':
     app.run(debug=True)

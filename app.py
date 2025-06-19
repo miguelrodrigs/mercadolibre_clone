@@ -105,5 +105,10 @@ def obtener_producto_api():
 
     return jsonify(producto)
 
+@app.route('/api/productos')
+def obtener_todos_los_productos():
+    productos = cargar_lista_productos()
+    return jsonify(productos)
+
 if __name__ == '__main__':
     app.run(debug=True)
